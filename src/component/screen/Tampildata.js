@@ -1,7 +1,7 @@
 import React from "react"
 import { 
   View, 
-  Text, 
+  // Text, 
   TextInput, 
   FlatList,
   YellowBox,
@@ -11,6 +11,16 @@ import {
   Platform,
   TouchableOpacity
 } from 'react-native'
+
+import { 
+  Container,
+  Header, 
+  Content, 
+  Card, 
+  CardItem, 
+  Body, 
+  Text } from 'native-base';
+
 import axios from 'axios';
 
 class TampilkanData extends React.Component {
@@ -53,19 +63,25 @@ componentDidMount() {
  renderItems = ({ item, index }) => {
        const {student_id,student_name,student_class,student_phone_number,student_email}=item
        return(
-        <View style={{flex:1}}>
-            <TouchableOpacity  onPress={this.AmbildataCuy.bind(
+        <TouchableOpacity  onPress={this.AmbildataCuy.bind(
                         this, student_id,
                          student_name, 
                          student_class, 
                          student_phone_number, 
-                         student_email)} > 
+                         student_email)} >
+          <Card>
+            <CardItem>
+              <Body>
+                  
                                    <Text>{student_id} . {student_name}</Text>
                                    <Text>   {student_class}</Text>
                                    <Text>   {student_phone_number}</Text>
                                    <Text>   {student_email}</Text>
+              </Body>
+            </CardItem>
+          </Card>
             </TouchableOpacity>
-        </View>
+          
        )
    }
 
